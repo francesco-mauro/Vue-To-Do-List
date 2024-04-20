@@ -26,20 +26,17 @@
     <main>
       <div class="container">
         <div class="top">
-          <input type="text" placeholder="es: Fare la spesa..." />
-          <button type="button" class="btn btn-filled">Add Task</button>
+          <!-- aggiunta task non completarti -->
+          <input type="text" v-model="newTodoText" placeholder="es: Fare la spesa..." />
+          <button type="button" class="btn btn-filled" @click="addTodo">Aggiungi Task</button>
         </div>
         <div class="tasks">
-<!-- task "diamico"  -->
+          <!-- task "diamico"  -->
           <ul class="inner-list">
-            <li 
-            v-for="todo in todos" 
-            :class="{ done: todo.done }">
-              <span class="circle" 
-              :class="{ checked: todo.done, delete: !todo.done }">
-            </span>
-            <span>{{todo.text}}</span>
-            
+            <li v-for="todo in todos" :class="{ done: todo.done }">
+              <span class="circle" :class="{ checked: todo.done, delete: !todo.done }">
+              </span>
+              <span>{{todo.text}}</span>
             </li>
           </ul>
         </div>
