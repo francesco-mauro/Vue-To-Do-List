@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toboolist</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toboolist</title>
+  <!-- vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- style.css  -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+
+<body>
+
+  <div id="app">
+    ...
+
+
     <header>
       <img id="logo" src="img/logo.png" alt="logo boolean" />
       <span id="logo-text">Toboolist</span>
@@ -19,25 +30,26 @@
           <button type="button" class="btn btn-filled">Add Task</button>
         </div>
         <div class="tasks">
-              <ul class="inner-list">
-                <li class="done">
-                  <span class="circle checked"></span>Recruiting blog post
-                </li>
-                <li class="done">
-                  <span class="circle checked"></span>Mobile app luaunch
-                </li>
-                <li>
-                  <span class="circle delete"></span>Interview John H.
-                </li>
-                <li class="done">
-                  <span class="circle checked"></span>Summit update to mobile
-                  storefronts 
-                </li>
-              </ul>
+<!-- task "diamico"  -->
+          <ul class="inner-list">
+            <li 
+            v-for="todo in todos" 
+            :class="{ done: todo.done }">
+              <span class="circle" 
+              :class="{ checked: todo.done, delete: !todo.done }">
+            </span>
+            <span>{{todo.text}}</span>
+            
             </li>
           </ul>
         </div>
       </div>
-    </main>
-  </body>
+  </div>
+  </main>
+
+  <!-- script.js  -->
+
+  <script src="./js/script.js"></script>
+</body>
+
 </html>
